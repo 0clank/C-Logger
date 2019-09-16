@@ -36,8 +36,8 @@
 #define NAMESPACE_UNKNOWN "unknown"
 
 // Customs
-#define Logger q1::CLogger&
-#define String std::string&
+#define Logger q1::CLogger
+#define String std::string
 
 namespace q1
 {
@@ -58,14 +58,15 @@ namespace q1
 		CLogger() = default;
 		~CLogger() = default;
 
-		String file();
-		String space();
-		String shortSpace();
+		String& file();
+		String& space();
+		String& shortSpace();
 
-		void file(String str);
-		void space(String str);
-		void shortSpace(String str);
+		void file(String& str);
+		void space(String& str);
+		void shortSpace(String& str);
 
+		String timeAsString();
 	private:
 		std::string m_File;
 		std::string m_Space;

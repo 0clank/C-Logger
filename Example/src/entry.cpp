@@ -39,5 +39,7 @@ int main()
 
 	test::test();
 
+	std::cout << logger.timeAsString() << std::endl;
+
 	return 0;
 }

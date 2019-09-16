@@ -24,6 +24,7 @@
  */
 
 #include <iostream>
+#include <ctime>
 
 #include "../include/logger.h"
 
@@ -31,7 +32,7 @@
  * Getter of m_File
  * @returns Value of m_File
  */
-std::string& q1::CLogger::file()
+String& q1::CLogger::file()
 {
 	return m_File;
 }
@@ -40,7 +41,7 @@ std::string& q1::CLogger::file()
  * Getter of m_Space
  * @returns Value of m_Space
  */
-std::string& q1::CLogger::space()
+String& q1::CLogger::space()
 {
 	return m_Space;
 }
@@ -49,7 +50,7 @@ std::string& q1::CLogger::space()
  * Getter of m_ShortSpace
  * @returns Value of m_ShortSpace
  */
-std::string& q1::CLogger::shortSpace()
+String& q1::CLogger::shortSpace()
 {
 	return m_ShortSpace;
 }
@@ -58,7 +59,7 @@ std::string& q1::CLogger::shortSpace()
  * Setter of m_File
  * @param str Value to set as m_File
  */
-void q1::CLogger::file(std::string& str)
+void q1::CLogger::file(String& str)
 {
 	m_File = str;
 }
@@ -67,7 +68,7 @@ void q1::CLogger::file(std::string& str)
  * Setter of m_Space
  * @param str Value to set as m_Space
  */
-void q1::CLogger::space(std::string& str)
+void q1::CLogger::space(String& str)
 {
 	m_Space = str;
 }
@@ -76,7 +77,26 @@ void q1::CLogger::space(std::string& str)
  * Setter of m_ShortSpace
  * @param str Value to set as m_ShortSpace
  */
-void q1::CLogger::shortSpace(std::string& str)
+void q1::CLogger::shortSpace(String& str)
 {
 	m_ShortSpace = str;
+}
+
+
+String q1::CLogger::timeAsString()
+{
+	time_t rawTime;
+	tm* timeInfo = new tm;
+	char buffer[80];
+
+	time(&rawTime);
+	localtime_s(timeInfo, &rawTime);
+
+	strftime(buffer, sizeof(buffer), "%d-%m-%Y %H:%M:%S", timeInfo);
+	std::string str(buffer);
+
+	delete timeInfo;
+	timeInfo = nullptr;
+
+	return str;
 }
