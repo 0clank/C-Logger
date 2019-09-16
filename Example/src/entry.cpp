@@ -29,7 +29,7 @@
 
 int main()
 {
-	fnq1Console();
+	q1::CLogger logger;
 
 	return 0;
 }

@@ -28,6 +28,27 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-void fnq1Console();
+// Const
+#define MAX_NAMESPACE_CHARS 10
+#define FILE_UNKNOWN "unknown"
+#define NAMESPACE_UNKNOWN "unknown"
+
+namespace q1
+{
+	class CLogger
+	{
+	public:
+		CLogger();
+		CLogger(std::string& strFile, std::string& strNamespace);
+
+		~CLogger() = default;
+
+	private:
+		std::string m_strFile;
+		std::string m_strNamespace;
+
+		std::string m_strNamespaceShort;
+	};
+}
 
 #endif
