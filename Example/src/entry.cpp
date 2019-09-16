@@ -24,12 +24,20 @@
  */
 
 #include <logger.h>
+#include <iostream>
+
+#include "include.h"
 
 #pragma comment(lib, "q1Console")
 
 int main()
 {
 	q1::CLogger logger;
+	std::string test = "main";
+	logger.file(test);
+	std::cout << logger.file() << std::endl;
+
+	test::test();
 
 	return 0;
 }
