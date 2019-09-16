@@ -82,7 +82,14 @@ void q1::CLogger::shortSpace(String& str)
 	m_ShortSpace = str;
 }
 
-
+/**
+ * Gets the current time as std::string using localtime_s() <br>
+ * The string will have following format: Wed Feb 13 17:17:11 2013 <br>
+ * 
+ * Format: "%d-%m-%Y %H:%M:%S"
+ * 
+ * @returns The current time
+ */
 String q1::CLogger::timeAsString()
 {
 	time_t rawTime;
