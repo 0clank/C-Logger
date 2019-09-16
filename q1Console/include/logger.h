@@ -26,6 +26,8 @@
 #ifndef __LOGGER_H__
 #define __LOGGER_H__
 
+#include <string>
+
 #define WIN32_LEAN_AND_MEAN
 
 // Const
@@ -33,21 +35,41 @@
 #define FILE_UNKNOWN "unknown"
 #define NAMESPACE_UNKNOWN "unknown"
 
+// Customs
+#define Logger q1::CLogger&
+#define String std::string&
+
 namespace q1
 {
+	/**
+	 * Implementation of a Logger for q1Console
+	 * 
+	 * Controls the logging into the console and into a file.
+	 * 
+	 * @author Qu1oX
+	 * @since 0.1
+	 * @version 0.1
+	 * 
+	 * @note Use the CLoggerFactory to create an object
+	 */
 	class CLogger
 	{
 	public:
-		CLogger();
-		CLogger(std::string& strFile, std::string& strNamespace);
-
+		CLogger() = default;
 		~CLogger() = default;
 
-	private:
-		std::string m_strFile;
-		std::string m_strNamespace;
+		String file();
+		String space();
+		String shortSpace();
 
-		std::string m_strNamespaceShort;
+		void file(String str);
+		void space(String str);
+		void shortSpace(String str);
+
+	private:
+		std::string m_File;
+		std::string m_Space;
+		std::string m_ShortSpace;
 	};
 }
 

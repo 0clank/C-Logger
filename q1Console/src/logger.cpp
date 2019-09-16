@@ -26,15 +26,3 @@
 #include <iostream>
 
 #include "../include/logger.h"
-
-q1::CLogger::CLogger()
-{
-	m_strFile = FILE_UNKNOWN;
-	m_strNamespace = NAMESPACE_UNKNOWN;
-}
-
-q1::CLogger::CLogger(std::string& strFile, std::string& strNamespace)
-{
-	m_strFile = strFile;
-	m_strNamespace = strNamespace;
-}
