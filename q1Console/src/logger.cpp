@@ -26,3 +26,57 @@
 #include <iostream>
 
 #include "../include/logger.h"
+
+/**
+ * Getter of m_File
+ * @returns Value of m_File
+ */
+std::string& q1::CLogger::file()
+{
+	return m_File;
+}
+
+/**
+ * Getter of m_Space
+ * @returns Value of m_Space
+ */
+std::string& q1::CLogger::space()
+{
+	return m_Space;
+}
+
+/**
+ * Getter of m_ShortSpace
+ * @returns Value of m_ShortSpace
+ */
+std::string& q1::CLogger::shortSpace()
+{
+	return m_ShortSpace;
+}
+
+/**
+ * Setter of m_File
+ * @param str Value to set as m_File
+ */
+void q1::CLogger::file(std::string& str)
+{
+	m_File = str;
+}
+
+/**
+ * Setter of m_Space
+ * @param str Value to set as m_Space
+ */
+void q1::CLogger::space(std::string& str)
+{
+	m_Space = str;
+}
+
+/**
+ * Setter of m_ShortSpace
+ * @param str Value to set as m_ShortSpace
+ */
+void q1::CLogger::shortSpace(std::string& str)
+{
+	m_ShortSpace = str;
+}
