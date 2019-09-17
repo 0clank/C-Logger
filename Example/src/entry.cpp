@@ -37,9 +37,5 @@ int main()
 	std::string file = __FILE__;
 	logger.info(&file);
 
-	test::test();
-
-	test::test();
-
 	return 0;
 }

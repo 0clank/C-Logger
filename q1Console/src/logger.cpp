@@ -40,6 +40,12 @@
  */
 q1::CLogger::CLogger(std::string file)
 {
+	const size_t last_slash_idx = file.find_last_of("\\/");
+	if (std::string::npos != last_slash_idx)
+	{
+		file.erase(0, last_slash_idx + 1);
+	}
+
 	m_File = file;
 }
 
