@@ -33,37 +33,13 @@
 #include "../include/logger.h"
 #include "../include/color.h"
 
+/**
+ * Creates an instance of CLogger
+ */
 q1::CLogger::CLogger(std::string file, std::string space)
 {
 	m_File = file;
 	m_Space = space;
-}
-
-/**
- * Getter of m_File
- * @returns Value of m_File
- */
-String& q1::CLogger::file()
-{
-	return m_File;
-}
-
-/**
- * Getter of m_Space
- * @returns Value of m_Space
- */
-String& q1::CLogger::space()
-{
-	return m_Space;
-}
-
-/**
- * Getter of m_ShortSpace
- * @returns Value of m_ShortSpace
- */
-String& q1::CLogger::shortSpace()
-{
-	return m_ShortSpace;
 }
 
 /**

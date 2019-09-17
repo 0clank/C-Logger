@@ -68,13 +68,11 @@ namespace q1
 		CLogger(String file = FILE_UNKNOWN_LOG, String space = NAMESPACE_UNKNOWN_LOG);
 		~CLogger() = default;
 
-		String& file();
-		String& space();
-		String& shortSpace();
-
 		CLogger& file(String& str);
 		CLogger& space(String& str);
 		CLogger& shortSpace(String& str);
+
+
 
 		void colorizedTime();
 		void colorizedType(uint16_t type);
