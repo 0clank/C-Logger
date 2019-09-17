@@ -31,13 +31,23 @@
 #define WIN32_LEAN_AND_MEAN
 
 // Const
-#define MAX_NAMESPACE_CHARS 10
-#define FILE_UNKNOWN "unknown"
-#define NAMESPACE_UNKNOWN "unknown"
+#define MAX_NAMESPACE_CHARS	10
+#define FILE_UNKNOWN		"unknown"
+#define NAMESPACE_UNKNOWN	"unknown"
+
+#define L_INFO	0
+#define L_DEBUG 1
+#define L_WARN	2
+#define L_ERROR 3
+
+#define S_INFO	" INFO"
+#define S_DEBUG "DEBUG"
+#define S_WARN	" WARN"
+#define S_ERROR "ERROR"
 
 // Customs
-#define Logger q1::CLogger
-#define String std::string
+#define Logger	q1::CLogger
+#define String	std::string
 
 namespace q1
 {
