@@ -70,6 +70,41 @@ void q1::CLogger::info(const std::string* pointer)
 	printLinebreak();
 }
 
+void q1::CLogger::debug(const std::string* pointer)
+{
+#ifdef _DEBUG
+	colorizedTime();
+	colorizedType(LOG_DEBUG);
+	printFile();
+
+	std::cout << *pointer;
+
+	printLinebreak();
+#endif
+}
+
+void q1::CLogger::warn(const std::string* pointer)
+{
+	colorizedTime();
+	colorizedType(LOG_WARN);
+	printFile();
+
+	std::cout << *pointer;
+
+	printLinebreak();
+}
+
+void q1::CLogger::error(const std::string* pointer)
+{
+	colorizedTime();
+	colorizedType(LOG_ERROR);
+	printFile();
+
+	std::cout << *pointer;
+
+	printLinebreak();
+}
+
 /**
  * Prints out a space
  */
@@ -88,8 +123,7 @@ void q1::CLogger::printLinebreak()
 
 void q1::CLogger::printFile()
 {
-	std::cout << "[" << m_File << "]";
-	printSpace();
+	std::cout << "[" << m_File << "]: ";
 }
 
 /**

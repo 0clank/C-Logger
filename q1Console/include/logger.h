@@ -30,10 +30,7 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-// ConstIdentifier
-#define MAX_NAMESPACE_CHARS	10
-#define FILE_UNKNOWN_LOG		"unknown"
-#define IDENTIFIER_UNKNOWN_LOG	"unknown"
+#define FILE_UNKNOWN_LOG "unknown"
 
 #define LOG_INFO	0
 #define LOG_DEBUG	1
@@ -70,7 +67,10 @@ namespace q1
 
 		CLogger& file(String& str);
 
-		void info(const std::string* pointer);
+		void info(const String* pointer);
+		void debug(const String* pointer);
+		void warn(const String* pointer);
+		void error(const String* pointer);
 
 	private:
 		std::string m_File;
