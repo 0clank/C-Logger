@@ -66,11 +66,16 @@ namespace q1
 		void space(String& str);
 		void shortSpace(String& str);
 
-		String timeAsString();
+		void colorizedTime();
+		void colorizedType();
+
 	private:
 		std::string m_File;
 		std::string m_Space;
 		std::string m_ShortSpace;
+
+		String timeAsString();
+		String logTypeAsString();
 	};
 }
 

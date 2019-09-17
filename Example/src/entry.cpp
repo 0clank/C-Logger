@@ -39,7 +39,9 @@ int main()
 
 	test::test();
 
-	std::cout << logger.timeAsString() << std::endl;
+	logger.colorizedTime();
+
+	test::test();
 
 	return 0;
 }

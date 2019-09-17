@@ -26,7 +26,12 @@
 #include <iostream>
 #include <ctime>
 
+#ifdef _WIN32
+#include <windows.h>
+#endif
+
 #include "../include/logger.h"
+#include "../include/color.h"
 
 /**
  * Getter of m_File
@@ -83,6 +88,34 @@ void q1::CLogger::shortSpace(String& str)
 }
 
 /**
+ * Prints out the current time in gray <br>
+ * If Windows: Gets the current output handle and changes the text color to gray to print out the time <br>
+ * Else: Using ANSI Escape (Linux and MAC)
+ * @note It gets the handle in here because not every user wants to include windows.h -> Cant include it in logger.h
+ */
+void q1::CLogger::colorizedTime()
+{
+#ifdef _WIN32
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	SetConsoleTextAttribute(hConsole, GRAY);
+
+	std::cout << timeAsString();
+
+	SetConsoleTextAttribute(hConsole, RESET);
+#endif
+}
+
+/**
+ * Prints out the log type <br>
+ * If Windows: Gets the current output handle and changes the text color to gray to print out the time <br>
+ * Else: Using ANSI Escape (Linux and MAC)
+ * @note It gets the handle in here because not every user wants to include windows.h -> Cant include it in logger.h
+ */
+void q1::CLogger::colorizedType()
+{
+}
+
+/**
  * Gets the current time as std::string using localtime_s() <br>
  * The string will have following format: Wed Feb 13 17:17:11 2013 <br>
  * 
@@ -106,4 +139,8 @@ String q1::CLogger::timeAsString()
 	timeInfo = nullptr;
 
 	return str;
+}
+
+std::string q1::CLogger::logTypeAsString()
+{
 }
