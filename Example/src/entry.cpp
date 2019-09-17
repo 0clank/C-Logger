@@ -40,6 +40,10 @@ int main()
 	test::test();
 
 	logger.colorizedTime();
+	logger.colorizedType(LOG_INFO);
+	logger.colorizedType(LOG_DEBUG);
+	logger.colorizedType(LOG_WARN);
+	logger.colorizedType(LOG_ERROR);
 
 	test::test();
 

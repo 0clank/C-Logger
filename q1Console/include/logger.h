@@ -35,15 +35,15 @@
 #define FILE_UNKNOWN		"unknown"
 #define NAMESPACE_UNKNOWN	"unknown"
 
-#define L_INFO	0
-#define L_DEBUG 1
-#define L_WARN	2
-#define L_ERROR 3
+#define LOG_INFO	0
+#define LOG_DEBUG	1
+#define LOG_WARN	2
+#define LOG_ERROR	3
 
-#define S_INFO	" INFO"
-#define S_DEBUG "DEBUG"
-#define S_WARN	" WARN"
-#define S_ERROR "ERROR"
+#define STR_INFO	" INFO"
+#define STR_DEBUG	"DEBUG"
+#define STR_WARN	" WARN"
+#define STR_ERROR	"ERROR"
 
 // Customs
 #define Logger	q1::CLogger
@@ -77,7 +77,7 @@ namespace q1
 		void shortSpace(String& str);
 
 		void colorizedTime();
-		void colorizedType();
+		void colorizedType(uint16_t type);
 
 	private:
 		std::string m_File;
@@ -85,7 +85,6 @@ namespace q1
 		std::string m_ShortSpace;
 
 		String timeAsString();
-		String logTypeAsString();
 	};
 }
 

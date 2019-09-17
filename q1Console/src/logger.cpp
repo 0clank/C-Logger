@@ -111,8 +111,35 @@ void q1::CLogger::colorizedTime()
  * Else: Using ANSI Escape (Linux and MAC)
  * @note It gets the handle in here because not every user wants to include windows.h -> Cant include it in logger.h
  */
-void q1::CLogger::colorizedType()
+void q1::CLogger::colorizedType(uint16_t type)
 {
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+
+	switch (type)
+	{
+	case LOG_INFO: 
+		SetConsoleTextAttribute(hConsole, GREEN);
+		std::cout << STR_INFO;
+		break;
+	case LOG_DEBUG:
+		SetConsoleTextAttribute(hConsole, CYAN);
+		std::cout << STR_DEBUG;
+		break;
+	case LOG_WARN:
+		SetConsoleTextAttribute(hConsole, YELLOW);
+		std::cout << STR_WARN;
+		break;
+	case LOG_ERROR:
+		SetConsoleTextAttribute(hConsole, RED);
+		std::cout << STR_ERROR;
+		break;
+	default:
+		SetConsoleTextAttribute(hConsole, RED);
+		std::cout << STR_ERROR;
+		break;
+	}
+
+	SetConsoleTextAttribute(hConsole, RESET);
 }
 
 /**
@@ -139,8 +166,4 @@ String q1::CLogger::timeAsString()
 	timeInfo = nullptr;
 
 	return str;
-}
-
-std::string q1::CLogger::logTypeAsString()
-{
 }
