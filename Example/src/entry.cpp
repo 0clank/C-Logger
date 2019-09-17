@@ -32,23 +32,12 @@
 
 int main()
 {
-	q1::CLogger logger;
+	q1::CLogger logger(__FILE__);
 
-	//std::string file = "file";
-	//std::string space = "space";
-
-	//logger.file(file).space(space);
-
-	std::cout << logger.file() << std::endl;
-	std::cout << logger.space() << std::endl;
+	std::string file = __FILE__;
+	logger.info(&file);
 
 	test::test();
-
-	logger.colorizedTime();
-	logger.colorizedType(LOG_INFO);
-	logger.colorizedType(LOG_DEBUG);
-	logger.colorizedType(LOG_WARN);
-	logger.colorizedType(LOG_ERROR);
 
 	test::test();
 

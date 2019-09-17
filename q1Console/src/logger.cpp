@@ -35,11 +35,12 @@
 
 /**
  * Creates an instance of CLogger
+ * 
+ * @param file File
  */
-q1::CLogger::CLogger(std::string file, std::string space)
+q1::CLogger::CLogger(std::string file)
 {
 	m_File = file;
-	m_Space = space;
 }
 
 /**
@@ -52,24 +53,37 @@ q1::CLogger& q1::CLogger::file(String& str)
 	return *this;
 }
 
-/**
- * Setter of m_Space
- * @param str Value to set as m_Space
- */
-q1::CLogger& q1::CLogger::space(String& str)
+void q1::CLogger::info(const std::string* pointer)
 {
-	m_Space = str;
-	return *this;
+	colorizedTime();
+	colorizedType(LOG_INFO);
+	printFile();
+
+	std::cout << *pointer;
+
+	printLinebreak();
 }
 
 /**
- * Setter of m_ShortSpace
- * @param str Value to set as m_ShortSpace
+ * Prints out a space
  */
-q1::CLogger& q1::CLogger::shortSpace(String& str)
+void q1::CLogger::printSpace()
 {
-	m_ShortSpace = str;
-	return *this;
+	std::cout << " ";
+}
+
+/**
+ * Prints out a line break
+ */
+void q1::CLogger::printLinebreak()
+{
+	std::cout << std::endl;
+}
+
+void q1::CLogger::printFile()
+{
+	std::cout << "[" << m_File << "]";
+	printSpace();
 }
 
 /**
@@ -85,6 +99,7 @@ void q1::CLogger::colorizedTime()
 	SetConsoleTextAttribute(hConsole, GRAY);
 
 	std::cout << timeAsString();
+	printSpace();
 
 	SetConsoleTextAttribute(hConsole, RESET);
 #endif
@@ -124,6 +139,7 @@ void q1::CLogger::colorizedType(uint16_t type)
 		break;
 	}
 
+	printSpace();
 	SetConsoleTextAttribute(hConsole, RESET);
 }
 

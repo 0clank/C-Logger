@@ -30,10 +30,10 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-// Const
+// ConstIdentifier
 #define MAX_NAMESPACE_CHARS	10
 #define FILE_UNKNOWN_LOG		"unknown"
-#define NAMESPACE_UNKNOWN_LOG	"unknown"
+#define IDENTIFIER_UNKNOWN_LOG	"unknown"
 
 #define LOG_INFO	0
 #define LOG_DEBUG	1
@@ -65,22 +65,21 @@ namespace q1
 	class CLogger
 	{
 	public:
-		CLogger(String file = FILE_UNKNOWN_LOG, String space = NAMESPACE_UNKNOWN_LOG);
+		CLogger(String file = FILE_UNKNOWN_LOG);
 		~CLogger() = default;
 
 		CLogger& file(String& str);
-		CLogger& space(String& str);
-		CLogger& shortSpace(String& str);
 
-
-
-		void colorizedTime();
-		void colorizedType(uint16_t type);
+		void info(const std::string* pointer);
 
 	private:
 		std::string m_File;
-		std::string m_Space;
-		std::string m_ShortSpace;
+
+		void printSpace();
+		void printLinebreak();
+		void printFile();
+		void colorizedTime();
+		void colorizedType(uint16_t type);
 
 		String timeAsString();
 	};
