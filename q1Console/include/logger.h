@@ -32,8 +32,8 @@
 
 // Const
 #define MAX_NAMESPACE_CHARS	10
-#define FILE_UNKNOWN		"unknown"
-#define NAMESPACE_UNKNOWN	"unknown"
+#define FILE_UNKNOWN_LOG		"unknown"
+#define NAMESPACE_UNKNOWN_LOG	"unknown"
 
 #define LOG_INFO	0
 #define LOG_DEBUG	1
