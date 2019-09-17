@@ -34,8 +34,15 @@ int main()
 {
 	q1::CLogger logger(__FILE__);
 
-	std::string file = __FILE__;
-	logger.info(&file);
+	std::string info = "some info text over here.";
+	std::string debug = "some debug text over here.";
+	std::string warn = "some warn text over here.";
+	std::string error = "some error text over here.";
+
+	logger.info(&info);
+	logger.debug(&debug);
+	logger.warn(&warn);
+	logger.error(&error);
 
 	return 0;
 }
