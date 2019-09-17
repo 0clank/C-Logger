@@ -33,9 +33,14 @@
 int main()
 {
 	q1::CLogger logger;
-	std::string test = "main";
-	logger.file(test);
+
+	//std::string file = "file";
+	//std::string space = "space";
+
+	//logger.file(file).space(space);
+
 	std::cout << logger.file() << std::endl;
+	std::cout << logger.space() << std::endl;
 
 	test::test();
 

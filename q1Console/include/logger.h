@@ -65,16 +65,16 @@ namespace q1
 	class CLogger
 	{
 	public:
-		CLogger() = default;
+		CLogger(String file = FILE_UNKNOWN_LOG, String space = NAMESPACE_UNKNOWN_LOG);
 		~CLogger() = default;
 
 		String& file();
 		String& space();
 		String& shortSpace();
 
-		void file(String& str);
-		void space(String& str);
-		void shortSpace(String& str);
+		CLogger& file(String& str);
+		CLogger& space(String& str);
+		CLogger& shortSpace(String& str);
 
 		void colorizedTime();
 		void colorizedType(uint16_t type);

@@ -33,6 +33,12 @@
 #include "../include/logger.h"
 #include "../include/color.h"
 
+q1::CLogger::CLogger(std::string file, std::string space)
+{
+	m_File = file;
+	m_Space = space;
+}
+
 /**
  * Getter of m_File
  * @returns Value of m_File
@@ -64,27 +70,30 @@ String& q1::CLogger::shortSpace()
  * Setter of m_File
  * @param str Value to set as m_File
  */
-void q1::CLogger::file(String& str)
+q1::CLogger& q1::CLogger::file(String& str)
 {
 	m_File = str;
+	return *this;
 }
 
 /**
  * Setter of m_Space
  * @param str Value to set as m_Space
  */
-void q1::CLogger::space(String& str)
+q1::CLogger& q1::CLogger::space(String& str)
 {
 	m_Space = str;
+	return *this;
 }
 
 /**
  * Setter of m_ShortSpace
  * @param str Value to set as m_ShortSpace
  */
-void q1::CLogger::shortSpace(String& str)
+q1::CLogger& q1::CLogger::shortSpace(String& str)
 {
 	m_ShortSpace = str;
+	return *this;
 }
 
 /**
