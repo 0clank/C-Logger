@@ -34,6 +34,8 @@ int main()
 {
 	q1::CLogger logger(__FILE__);
 
+	logger.disableColorization();
+
 	std::string info = "some info text over here.";
 	std::string debug = "some debug text over here.";
 	std::string warn = "some warn text over here.";

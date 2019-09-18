@@ -82,6 +82,16 @@ q1::CLogger& q1::CLogger::disableTime()
 }
 
 /**
+ * Disables the Logger type
+ * @returns Current object
+ */
+q1::CLogger& q1::CLogger::disableType()
+{
+	m_Type = false;
+	return *this;
+}
+
+/**
  * Disables the Logger colorization
  * @returns Current object
  */
@@ -186,13 +196,24 @@ void q1::CLogger::printFile()
 void q1::CLogger::colorizedTime()
 {
 #ifdef _WIN32
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-	SetConsoleTextAttribute(hConsole, GRAY);
+	if (m_Time)
+	{
+		if (m_Color)
+		{
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+			SetConsoleTextAttribute(hConsole, GRAY);
 
-	std::cout << timeAsString();
-	printSpace();
+			std::cout << timeAsString();
+			printSpace();
 
-	SetConsoleTextAttribute(hConsole, RESET);
+			SetConsoleTextAttribute(hConsole, RESET);
+		}
+		else
+		{
+			std::cout << timeAsString();
+			printSpace();
+		}
+	}
 #endif
 }
 
@@ -204,34 +225,63 @@ void q1::CLogger::colorizedTime()
  */
 void q1::CLogger::colorizedType(uint16_t type)
 {
-	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
-
-	switch (type)
+	if (m_Type)
 	{
-	case LOG_INFO: 
-		SetConsoleTextAttribute(hConsole, GREEN);
-		std::cout << STR_INFO;
-		break;
-	case LOG_DEBUG:
-		SetConsoleTextAttribute(hConsole, CYAN);
-		std::cout << STR_DEBUG;
-		break;
-	case LOG_WARN:
-		SetConsoleTextAttribute(hConsole, YELLOW);
-		std::cout << STR_WARN;
-		break;
-	case LOG_ERROR:
-		SetConsoleTextAttribute(hConsole, RED);
-		std::cout << STR_ERROR;
-		break;
-	default:
-		SetConsoleTextAttribute(hConsole, RED);
-		std::cout << STR_ERROR;
-		break;
-	}
+		if (m_Color)
+		{
+			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 
-	printSpace();
-	SetConsoleTextAttribute(hConsole, RESET);
+			switch (type)
+			{
+			case LOG_INFO:
+				SetConsoleTextAttribute(hConsole, GREEN);
+				std::cout << STR_INFO;
+				break;
+			case LOG_DEBUG:
+				SetConsoleTextAttribute(hConsole, CYAN);
+				std::cout << STR_DEBUG;
+				break;
+			case LOG_WARN:
+				SetConsoleTextAttribute(hConsole, YELLOW);
+				std::cout << STR_WARN;
+				break;
+			case LOG_ERROR:
+				SetConsoleTextAttribute(hConsole, RED);
+				std::cout << STR_ERROR;
+				break;
+			default:
+				SetConsoleTextAttribute(hConsole, RED);
+				std::cout << STR_ERROR;
+				break;
+			}
+
+			printSpace();
+			SetConsoleTextAttribute(hConsole, RESET);
+		}
+		else
+		{
+			switch (type)
+			{
+			case LOG_INFO:
+				std::cout << STR_INFO;
+				break;
+			case LOG_DEBUG:
+				std::cout << STR_DEBUG;
+				break;
+			case LOG_WARN:
+				std::cout << STR_WARN;
+				break;
+			case LOG_ERROR:
+				std::cout << STR_ERROR;
+				break;
+			default:
+				std::cout << STR_ERROR;
+				break;
+			}
+
+			printSpace();
+		}
+	}
 }
 
 /**

@@ -69,18 +69,29 @@ namespace q1
 		CLogger& file(String str);
 
 		CLogger& disableTime();
+		CLogger& disableType();
 		CLogger& disableColorization();
 
 		void info(const String* pointer);
 		void info(const String copy);
 		void info(const char* pointer);
+
 		void debug(const String* pointer);
+		void debug(const String copy);
+		void debug(const char* pointer);
+
 		void warn(const String* pointer);
+		void warn(const String copy);
+		void warn(const char* pointer);
+
 		void error(const String* pointer);
+		void error(const String copy);
+		void error(const char* pointer);
 
 	private:
 		String	m_File;
 		bool	m_Time = true;
+		bool	m_Type = true;
 		bool	m_Color = true;
 
 		void printSpace();
