@@ -42,10 +42,6 @@
 #define STR_WARN	" WARN"
 #define STR_ERROR	"ERROR"
 
-// Customs
-#define Logger	q1::CLogger
-#define String	std::string
-
 namespace q1
 {
 	/**
@@ -62,37 +58,37 @@ namespace q1
 	class CLogger
 	{
 	public:
-		CLogger(String file = FILE_UNKNOWN_LOG);
+		CLogger(std::string file = FILE_UNKNOWN_LOG);
 		~CLogger() = default;
 
-		CLogger& file(String* str);
-		CLogger& file(String str);
+		CLogger& file(std::string* str);
+		CLogger& file(std::string str);
 
 		CLogger& disableTime();
 		CLogger& disableType();
 		CLogger& disableColorization();
 
-		void info(const String* pointer);
-		void info(const String copy);
+		void info(const std::string* pointer);
+		void info(const std::string copy);
 		void info(const char* pointer);
 
-		void debug(const String* pointer);
-		void debug(const String copy);
+		void debug(const std::string* pointer);
+		void debug(const std::string copy);
 		void debug(const char* pointer);
 
-		void warn(const String* pointer);
-		void warn(const String copy);
+		void warn(const std::string* pointer);
+		void warn(const std::string copy);
 		void warn(const char* pointer);
 
-		void error(const String* pointer);
-		void error(const String copy);
+		void error(const std::string* pointer);
+		void error(const std::string copy);
 		void error(const char* pointer);
 
 	private:
-		String	m_File;
-		bool	m_Time = true;
-		bool	m_Type = true;
-		bool	m_Color = true;
+		std::string	m_File;
+		bool		m_Time = true;
+		bool		m_Type = true;
+		bool		m_Color = true;
 
 		void printSpace();
 		void printLinebreak();
@@ -100,7 +96,7 @@ namespace q1
 		void colorizedTime();
 		void colorizedType(uint16_t type);
 
-		String timeAsString();
+		std::string timeAsString();
 	};
 }
 

@@ -54,7 +54,7 @@ q1::CLogger::CLogger(std::string file)
  * @param str Value to set as m_File
  * @returns Current object
  */
-q1::CLogger& q1::CLogger::file(String* str)
+q1::CLogger& q1::CLogger::file(std::string* str)
 {
 	m_File = *str;
 	return *this;
@@ -117,6 +117,25 @@ void q1::CLogger::info(const std::string* pointer)
 }
 
 /**
+ * Prints out a info string
+ * @param copy String to print
+ */
+void q1::CLogger::info(const std::string copy)
+{
+	this->info(&copy);
+}
+
+/**
+ * Prints out a info string
+ * @param pointer String to print
+ */
+void q1::CLogger::info(const char* pointer)
+{
+	std::string str = pointer;
+	this->info(&str);
+}
+
+/**
  * Prints out a debug string
  * @param pointer String to print
  */
@@ -131,6 +150,25 @@ void q1::CLogger::debug(const std::string* pointer)
 
 	printLinebreak();
 #endif
+}
+
+/**
+ * Prints out a debug string
+ * @param copy String to print
+ */
+void q1::CLogger::debug(const std::string copy)
+{
+	this->info(&copy);
+}
+
+/**
+ * Prints out a debug string
+ * @param pointer String to print
+ */
+void q1::CLogger::debug(const char* pointer)
+{
+	std::string str = pointer;
+	this->info(&str);
 }
 
 /**
@@ -149,6 +187,25 @@ void q1::CLogger::warn(const std::string* pointer)
 }
 
 /**
+ * Prints out a warn string
+ * @param copy String to print
+ */
+void q1::CLogger::warn(const std::string copy)
+{
+	this->info(&copy);
+}
+
+/**
+ * Prints out a warn string
+ * @param pointer String to print
+ */
+void q1::CLogger::warn(const char* pointer)
+{
+	std::string str = pointer;
+	this->info(&str);
+}
+
+/**
  * Prints out a error string
  * @param pointer String to print
  */
@@ -161,6 +218,25 @@ void q1::CLogger::error(const std::string* pointer)
 	std::cout << *pointer;
 
 	printLinebreak();
+}
+
+/**
+ * Prints out a error string
+ * @param copy String to print
+ */
+void q1::CLogger::error(const std::string copy)
+{
+	this->info(&copy);
+}
+
+/**
+ * Prints out a error string
+ * @param pointer String to print
+ */
+void q1::CLogger::error(const char* pointer)
+{
+	std::string str = pointer;
+	this->info(&str);
 }
 
 /**
@@ -292,7 +368,7 @@ void q1::CLogger::colorizedType(uint16_t type)
  * 
  * @returns The current time
  */
-String q1::CLogger::timeAsString()
+std::string q1::CLogger::timeAsString()
 {
 	time_t rawTime;
 	tm* timeInfo = new tm;
