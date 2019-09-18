@@ -59,6 +59,10 @@ q1::CLogger& q1::CLogger::file(String& str)
 	return *this;
 }
 
+/**
+ * Prints out a info string
+ * @param pointer String to print
+ */
 void q1::CLogger::info(const std::string* pointer)
 {
 	colorizedTime();
@@ -70,6 +74,10 @@ void q1::CLogger::info(const std::string* pointer)
 	printLinebreak();
 }
 
+/**
+ * Prints out a debug string
+ * @param pointer String to print
+ */
 void q1::CLogger::debug(const std::string* pointer)
 {
 #ifdef _DEBUG
@@ -83,6 +91,10 @@ void q1::CLogger::debug(const std::string* pointer)
 #endif
 }
 
+/**
+ * Prints out a warm string
+ * @param pointer String to print
+ */
 void q1::CLogger::warn(const std::string* pointer)
 {
 	colorizedTime();
@@ -94,6 +106,10 @@ void q1::CLogger::warn(const std::string* pointer)
 	printLinebreak();
 }
 
+/**
+ * Prints out a error string
+ * @param pointer String to print
+ */
 void q1::CLogger::error(const std::string* pointer)
 {
 	colorizedTime();
@@ -121,6 +137,9 @@ void q1::CLogger::printLinebreak()
 	std::cout << std::endl;
 }
 
+/**
+ * Prints out the file name
+ */
 void q1::CLogger::printFile()
 {
 	std::cout << "[" << m_File << "]: ";

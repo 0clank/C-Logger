@@ -57,7 +57,7 @@ namespace q1
 	 * @since 0.1
 	 * @version 0.1
 	 * 
-	 * @note Use the CLoggerFactory to create an object
+	 * @note Logger format: {{ time }}  {{ type }} [{{ file }}]: {{ string }}
 	 */
 	class CLogger
 	{
