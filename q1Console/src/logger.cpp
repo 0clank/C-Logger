@@ -50,6 +50,16 @@ q1::CLogger::CLogger(std::string file)
 }
 
 /**
+ * Creates an instance of CLogger
+ * 
+ * @returns CLogger instance
+ */
+q1::CLogger q1::CLogger::create(std::string file)
+{
+	return CLogger(file);
+}
+
+/**
  * Setter of m_File
  * @param str Value to set as m_File
  * @returns Current object

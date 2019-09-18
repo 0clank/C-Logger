@@ -58,7 +58,7 @@ namespace q1
 	class CLogger
 	{
 	public:
-		CLogger(std::string file = FILE_UNKNOWN_LOG);
+		static CLogger create(std::string file = FILE_UNKNOWN_LOG);
 		~CLogger() = default;
 
 		CLogger& file(std::string* str);
@@ -85,6 +85,8 @@ namespace q1
 		void error(const char* pointer);
 
 	private:
+		CLogger(std::string file = FILE_UNKNOWN_LOG);
+
 		std::string	m_File;
 		bool		m_Time = true;
 		bool		m_Type = true;

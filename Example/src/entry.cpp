@@ -32,9 +32,10 @@
 
 int main()
 {
-	q1::CLogger logger(__FILE__);
-
-	logger.disableColorization();
+	q1::CLogger logger = q1::CLogger::create(__FILE__)
+		.disableColorization()
+		.disableType()
+		.disableTime();
 
 	std::string info = "some info text over here.";
 	std::string debug = "some debug text over here.";
