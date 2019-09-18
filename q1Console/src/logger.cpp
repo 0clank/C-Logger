@@ -52,10 +52,42 @@ q1::CLogger::CLogger(std::string file)
 /**
  * Setter of m_File
  * @param str Value to set as m_File
+ * @returns Current object
  */
-q1::CLogger& q1::CLogger::file(String& str)
+q1::CLogger& q1::CLogger::file(String* str)
+{
+	m_File = *str;
+	return *this;
+}
+
+/**
+ * Setter of m_File
+ * @param str Value to set as m_File
+ * @returns Current object
+ */
+q1::CLogger& q1::CLogger::file(std::string str)
 {
 	m_File = str;
+	return *this;
+}
+
+/**
+ * Disables the Logger timestamp
+ * @returns Current object
+ */
+q1::CLogger& q1::CLogger::disableTime()
+{
+	m_Time = false;
+	return *this;
+}
+
+/**
+ * Disables the Logger colorization
+ * @returns Current object
+ */
+q1::CLogger& q1::CLogger::disableColorization()
+{
+	m_Color = false;
 	return *this;
 }
 

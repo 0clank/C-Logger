@@ -65,15 +65,23 @@ namespace q1
 		CLogger(String file = FILE_UNKNOWN_LOG);
 		~CLogger() = default;
 
-		CLogger& file(String& str);
+		CLogger& file(String* str);
+		CLogger& file(String str);
+
+		CLogger& disableTime();
+		CLogger& disableColorization();
 
 		void info(const String* pointer);
+		void info(const String copy);
+		void info(const char* pointer);
 		void debug(const String* pointer);
 		void warn(const String* pointer);
 		void error(const String* pointer);
 
 	private:
-		std::string m_File;
+		String	m_File;
+		bool	m_Time = true;
+		bool	m_Color = true;
 
 		void printSpace();
 		void printLinebreak();
