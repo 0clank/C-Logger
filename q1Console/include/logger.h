@@ -65,8 +65,11 @@ namespace q1
 		CLogger& file(std::string str);
 
 		CLogger& disableTime();
+		CLogger& enableTime();
 		CLogger& disableType();
+		CLogger& enableType();
 		CLogger& disableColorization();
+		CLogger& enableColorization();
 
 		void info(const std::string* pointer);
 		void info(const std::string copy);
@@ -91,6 +94,8 @@ namespace q1
 		bool		m_Time = true;
 		bool		m_Type = true;
 		bool		m_Color = true;
+
+		bool		m_Export = false;
 
 		void printSpace();
 		void printLinebreak();

@@ -92,6 +92,16 @@ q1::CLogger& q1::CLogger::disableTime()
 }
 
 /**
+ * Enables the logger timestamp
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::enableTime()
+{
+	m_Time = true;
+	return *this;
+}
+
+/**
  * Disables the Logger type
  * @returns Current object
  */
@@ -102,12 +112,32 @@ q1::CLogger& q1::CLogger::disableType()
 }
 
 /**
+ * Enables the logger type
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::enableType()
+{
+	m_Type = true;
+	return *this;
+}
+
+/**
  * Disables the Logger colorization
  * @returns Current object
  */
 q1::CLogger& q1::CLogger::disableColorization()
 {
 	m_Color = false;
+	return *this;
+}
+
+/**
+ * Enables the logger colorization
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::enableColorization()
+{
+	m_Color = true;
 	return *this;
 }
 
