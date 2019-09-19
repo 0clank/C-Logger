@@ -142,6 +142,46 @@ q1::CLogger& q1::CLogger::enableColorization()
 }
 
 /**
+ * Disables the Logger export
+ * @returns Current object
+ */
+q1::CLogger& q1::CLogger::disableExport()
+{
+	m_Export = false;
+	return *this;
+}
+
+/**
+ * Enables the logger export
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::enableExport()
+{
+	m_Export = true;
+	return *this;
+}
+
+/**
+ * Changes the name of the log file
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::renameExportFile(std::string* str)
+{
+	m_ExportFile = *str;
+	return *this;
+}
+
+/**
+ * Changes the name of the log file
+ * @returns current object
+ */
+q1::CLogger& q1::CLogger::renameExportFile(const char* str)
+{
+	m_ExportFile = str;
+	return *this;
+}
+
+/**
  * Prints out a info string
  * @param pointer String to print
  */

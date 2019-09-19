@@ -71,6 +71,12 @@ namespace q1
 		CLogger& disableColorization();
 		CLogger& enableColorization();
 
+		CLogger& disableExport();
+		CLogger& enableExport();
+
+		CLogger& renameExportFile(std::string* str);
+		CLogger& renameExportFile(const char* str);
+
 		void info(const std::string* pointer);
 		void info(const std::string copy);
 		void info(const char* pointer);
@@ -96,6 +102,7 @@ namespace q1
 		bool		m_Color = true;
 
 		bool		m_Export = false;
+		std::string	m_ExportFile = "mylog.log";
 
 		void printSpace();
 		void printLinebreak();
