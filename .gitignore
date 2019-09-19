@@ -355,3 +355,4 @@ MigrationBackup/
 /q1Console/*.vcxproj
 /q1Console/*.filters
 /*.sln
+/Versions/version1.0/include
