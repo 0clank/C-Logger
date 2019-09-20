@@ -13,6 +13,7 @@
 ## Features
 ### Logger
 > Logs the string in that format: {{ time }}  {{ type }} [{ file }}]: {{ string }}
+
 > Logs the string to a file if .enableExport was called
 
 #### How to create and configure
