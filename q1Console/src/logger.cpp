@@ -24,6 +24,7 @@
  */
 
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
 #ifdef _WIN32
@@ -32,6 +33,8 @@
 
 #include "../include/logger.h"
 #include "../include/color.h"
+
+q1::CLogger q1::logger::internalLogger = q1::CLogger::create(__FILE__);
 
 /**
  * Creates an instance of CLogger
@@ -47,6 +50,8 @@ q1::CLogger::CLogger(std::string file)
 	}
 
 	m_File = file;
+
+	q1::logger::internalLogger.info("Created logger for file " + m_File);
 }
 
 /**
@@ -191,9 +196,8 @@ void q1::CLogger::info(const std::string* pointer)
 	colorizedType(LOG_INFO);
 	printFile();
 
-	std::cout << *pointer;
-
-	printLinebreak();
+	std::cout << *pointer << std::endl;
+	printToFile(pointer->c_str(), true);
 }
 
 /**
@@ -226,9 +230,8 @@ void q1::CLogger::debug(const std::string* pointer)
 	colorizedType(LOG_DEBUG);
 	printFile();
 
-	std::cout << *pointer;
-
-	printLinebreak();
+	std::cout << *pointer << std::endl;
+	printToFile(pointer->c_str(), true);
 #endif
 }
 
@@ -261,9 +264,8 @@ void q1::CLogger::warn(const std::string* pointer)
 	colorizedType(LOG_WARN);
 	printFile();
 
-	std::cout << *pointer;
-
-	printLinebreak();
+	std::cout << *pointer << std::endl;
+	printToFile(pointer->c_str(), true);
 }
 
 /**
@@ -295,9 +297,8 @@ void q1::CLogger::error(const std::string* pointer)
 	colorizedType(LOG_ERROR);
 	printFile();
 
-	std::cout << *pointer;
-
-	printLinebreak();
+	std::cout << *pointer << std::endl;;
+	printToFile(pointer->c_str(), true);
 }
 
 /**
@@ -320,27 +321,39 @@ void q1::CLogger::error(const char* pointer)
 }
 
 /**
- * Prints out a space
- */
-void q1::CLogger::printSpace()
-{
-	std::cout << " ";
-}
-
-/**
- * Prints out a line break
- */
-void q1::CLogger::printLinebreak()
-{
-	std::cout << std::endl;
-}
-
-/**
  * Prints out the file name
  */
 void q1::CLogger::printFile()
 {
-	std::cout << "[" << m_File << "]: ";
+	std::string str = "[" + m_File + "]: ";
+	std::cout << str;
+	printToFile(str.c_str(), false);
+}
+
+/**
+ * Prints a string to the file
+ */
+void q1::CLogger::printToFile(const char* pointer, bool bBreak)
+{
+	if (m_Export)
+	{
+		std::ofstream outdata;
+		outdata.open(m_ExportFile, std::ios_base::app);
+
+		if (!outdata)
+		{
+			q1::logger::internalLogger.error("Failed to open file " + m_ExportFile);
+		}
+
+		outdata << pointer;
+
+		if (bBreak)
+		{
+			outdata << std::endl;
+		}
+
+		outdata.close();
+	}
 }
 
 /**
@@ -354,21 +367,23 @@ void q1::CLogger::colorizedTime()
 #ifdef _WIN32
 	if (m_Time)
 	{
+		std::string time = timeAsString() + " ";
+
 		if (m_Color)
 		{
 			HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 			SetConsoleTextAttribute(hConsole, GRAY);
 
-			std::cout << timeAsString();
-			printSpace();
+			std::cout << time;
 
 			SetConsoleTextAttribute(hConsole, RESET);
 		}
 		else
 		{
-			std::cout << timeAsString();
-			printSpace();
+			std::cout << time;
 		}
+
+		printToFile(time.c_str(), false);
 	}
 #endif
 }
@@ -392,26 +407,30 @@ void q1::CLogger::colorizedType(uint16_t type)
 			case LOG_INFO:
 				SetConsoleTextAttribute(hConsole, GREEN);
 				std::cout << STR_INFO;
+				printToFile(STR_INFO, false);
 				break;
 			case LOG_DEBUG:
 				SetConsoleTextAttribute(hConsole, CYAN);
 				std::cout << STR_DEBUG;
+				printToFile(STR_DEBUG, false);
 				break;
 			case LOG_WARN:
 				SetConsoleTextAttribute(hConsole, YELLOW);
 				std::cout << STR_WARN;
+				printToFile(STR_WARN, false);
 				break;
 			case LOG_ERROR:
 				SetConsoleTextAttribute(hConsole, RED);
 				std::cout << STR_ERROR;
+				printToFile(STR_ERROR, false);
 				break;
 			default:
 				SetConsoleTextAttribute(hConsole, RED);
 				std::cout << STR_ERROR;
+				printToFile(STR_ERROR, false);
 				break;
 			}
 
-			printSpace();
 			SetConsoleTextAttribute(hConsole, RESET);
 		}
 		else
@@ -420,22 +439,25 @@ void q1::CLogger::colorizedType(uint16_t type)
 			{
 			case LOG_INFO:
 				std::cout << STR_INFO;
+				printToFile(STR_INFO, false);
 				break;
 			case LOG_DEBUG:
 				std::cout << STR_DEBUG;
+				printToFile(STR_DEBUG, false);
 				break;
 			case LOG_WARN:
 				std::cout << STR_WARN;
+				printToFile(STR_WARN, false);
 				break;
 			case LOG_ERROR:
 				std::cout << STR_ERROR;
+				printToFile(STR_ERROR, false);
 				break;
 			default:
 				std::cout << STR_ERROR;
+				printToFile(STR_ERROR, false);
 				break;
 			}
-
-			printSpace();
 		}
 	}
 }

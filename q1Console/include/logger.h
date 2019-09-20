@@ -37,10 +37,10 @@
 #define LOG_WARN	2
 #define LOG_ERROR	3
 
-#define STR_INFO	" INFO"
-#define STR_DEBUG	"DEBUG"
-#define STR_WARN	" WARN"
-#define STR_ERROR	"ERROR"
+#define STR_INFO	" INFO "
+#define STR_DEBUG	"DEBUG "
+#define STR_WARN	" WARN "
+#define STR_ERROR	"ERROR "
 
 namespace q1
 {
@@ -104,14 +104,18 @@ namespace q1
 		bool		m_Export = false;
 		std::string	m_ExportFile = "mylog.log";
 
-		void printSpace();
-		void printLinebreak();
 		void printFile();
+		void printToFile(const char* pointer, bool bBreak);
 		void colorizedTime();
 		void colorizedType(uint16_t type);
 
 		std::string timeAsString();
 	};
+
+	namespace logger
+	{
+		extern CLogger internalLogger;
+	}
 }
 
 #endif
