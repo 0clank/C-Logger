@@ -13,6 +13,7 @@
 ## Features
 ### Logger
 > Logs the string in that format: {{ time }}  {{ type }} [{ file }}]: {{ string }}
+> Logs the string to a file if .enableExport was called
 
 #### How to create and configure
 Create an instance of the logger
@@ -24,7 +25,6 @@ configuration
       q1::CLogger logger = q1::CLogger::create(__FILE__)
 		   .disableTime()
 		   .disableColorization()
-		   .disableType();
-
-#### How it looks
-[![q1Console](https://i.imgur.com/tyCoaGc.png)]
+		   .disableType()
+		   .enableExport()
+		   .renameExportFile("log.log");
