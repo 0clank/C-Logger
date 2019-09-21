@@ -34,8 +34,6 @@ Or by simple using the functions
 ### Logger
 > Logs the string in that format: {{ time }}  {{ type }} [{ file }}]: {{ string }}
 
-> Logs the string to a file if .enableExport was called
-
 #### How to create and configure
 Create an instance of the logger
       
@@ -49,3 +47,17 @@ configuration
 		   .disableType()
 		   .enableExport()
 		   .renameExportFile("log.log");
+
+#### How to use
+	
+	logger.info(&info);
+	logger.debug(&debug);
+	logger.warn(&warn);
+	logger.error(&error);
+	
+default output
+
+	20-09-2019 12:41:46  INFO [entry.cpp]: some info text over here.
+	20-09-2019 12:41:46 DEBUG [entry.cpp]: some debug text over here.
+	20-09-2019 12:41:46  WARN [entry.cpp]: some warn text over here.
+	20-09-2019 12:41:46 ERROR [entry.cpp]: some error text over here.
