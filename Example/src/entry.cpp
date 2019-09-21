@@ -37,8 +37,7 @@ int main()
 
 	q1::CPrinter::println(&test);
 	Println(&test);
-
-	test::ttest();
+	Println("Test");
 
 	q1::CLogger logger = q1::CLogger::create(__FILE__);
 

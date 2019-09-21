@@ -28,7 +28,498 @@
 
 #include <iostream>
 
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const std::string* str)
+{
+	std::cout << *str;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const std::string str)
+{
+	std::cout << str;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const std::wstring* wstr)
+{
+	std::cout << *wstr->c_str();
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const std::wstring wstr)
+{
+	std::cout << wstr.c_str();
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const char* str)
+{
+	std::cout << str;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const wchar_t* wstr)
+{
+	std::cout << wstr;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const double* db)
+{
+	std::cout << *db;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const double db)
+{
+	std::cout << db;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const float* fl)
+{
+	std::cout << *fl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const float fl)
+{
+	std::cout << fl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const long long* ln)
+{
+	std::cout << *ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const long long ln)
+{
+	std::cout << ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned long long* ln)
+{
+	std::cout << *ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned long long ln)
+{
+	std::cout << ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const long* ln)
+{
+	std::cout << *ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const long ln)
+{
+	std::cout << ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned long* ln)
+{
+	std::cout << *ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned long ln)
+{
+	std::cout << ln;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const int* number)
+{
+	std::cout << *number;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const int number)
+{
+	std::cout << number;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned int* number)
+{
+	std::cout << *number;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned int number)
+{
+	std::cout << number;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const short* sh)
+{
+	std::cout << *sh;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const short sh)
+{
+	std::cout << sh;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned short* sh)
+{
+	std::cout << *sh;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned short sh)
+{
+	std::cout << sh;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const char ch)
+{
+	std::cout << ch;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned char* ch)
+{
+	std::cout << ch;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const unsigned char ch)
+{
+	std::cout << ch;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const bool* b)
+{
+	std::cout << *b;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::print(const bool b)
+{
+	std::cout << b;
+}
+
+/**
+ * Prints out the variable to the console
+ */
 void q1::CPrinter::println(const std::string* str)
 {
 	std::cout << *str << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const std::string str)
+{
+	std::cout << str << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const std::wstring* wstr)
+{
+	std::cout << *wstr->c_str() << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const std::wstring wstr)
+{
+	std::cout << wstr.c_str() << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const char* str)
+{
+	std::cout << str << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const wchar_t* wstr)
+{
+	std::cout << wstr << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const double* db)
+{
+	std::cout << *db << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const double db)
+{
+	std::cout << db << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const float* fl)
+{
+	std::cout << *fl << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const float fl)
+{
+	std::cout << fl << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const long long* ln)
+{
+	std::cout << *ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const long long ln)
+{
+	std::cout << ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned long long* ln)
+{
+	std::cout << *ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned long long ln)
+{
+	std::cout << ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const long* ln)
+{
+	std::cout << *ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const long ln)
+{
+	std::cout << ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned long* ln)
+{
+	std::cout << *ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned long ln)
+{
+	std::cout << ln << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const int* number)
+{
+	std::cout << *number << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const int number)
+{
+	std::cout << number << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned int* number)
+{
+	std::cout << *number << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned int number)
+{
+	std::cout << number << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const short* sh)
+{
+	std::cout << *sh << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const short sh)
+{
+	std::cout << sh << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned short* sh)
+{
+	std::cout << *sh << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned short sh)
+{
+	std::cout << sh << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const char ch)
+{
+	std::cout << ch << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned char* ch)
+{
+	std::cout << ch << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const unsigned char ch)
+{
+	std::cout << ch << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const bool* b)
+{
+	std::cout << *b << std::endl;
+}
+
+/**
+ * Prints out the variable to the console
+ */
+void q1::CPrinter::println(const bool b)
+{
+	std::cout << b << std::endl;
 }
