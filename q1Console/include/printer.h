@@ -28,13 +28,102 @@
 
 #include <string>
 
+#define Print(x) q1::CPrinter::print(x)
+#define Println(x) q1::CPrinter::println(x)
+
 namespace q1
 {
 	class CPrinter
 	{
 	public:
-		static void println(std::string* str);
+		static void print(const std::string* str);
+		static void print(const std::string str);
+
+		static void print(const std::wstring* wstr);
+		static void print(const std::wstring wstr);
+
+		static void print(const char* str);
+		static void print(const wchar_t* wstr);
+
+		static void print(const double* db);
+		static void print(const double db);
+
+		static void print(const float* fl);
+		static void print(const float fl);
+
+		static void print(const long long* ln);
+		static void print(const long long ln);
+		static void print(const unsigned long long* ln);
+		static void print(const unsigned long long ln);
+
+		static void print(const long* ln);
+		static void print(const long ln);
+		static void print(const unsigned long* ln);
+		static void print(const unsigned long ln);
+
+		static void print(const int* number);
+		static void print(const int number);
+		static void print(const unsigned int* number);
+		static void print(const unsigned int number);
+
+		static void print(const short* sh);
+		static void print(const short sh);
+		static void print(const unsigned short* sh);
+		static void print(const unsigned short sh);
+
+		static void print(const char ch);
+		static void print(const unsigned char* ch);
+		static void print(const unsigned char ch);
+
+		static void print(const bool* b);
+		static void print(const bool b);
+
+
+
+		static void println(const std::string* str);
+		static void println(const std::string str);
+
+		static void println(const std::wstring* wstr);
+		static void println(const std::wstring wstr);
+
+		static void println(const char* str);
+		static void println(const wchar_t* wstr);
+
+		static void println(const double* db);
+		static void println(const double db);
+
+		static void println(const float* fl);
+		static void println(const float fl);
+
+		static void println(const long long* ln);
+		static void println(const long long ln);
+		static void println(const unsigned long long* ln);
+		static void println(const unsigned long long ln);
+
+		static void println(const long* ln);
+		static void println(const long ln);
+		static void println(const unsigned long* ln);
+		static void println(const unsigned long ln);
+
+		static void println(const int* number);
+		static void println(const int number);
+		static void println(const unsigned int* number);
+		static void println(const unsigned int number);
+
+		static void println(const short* sh);
+		static void println(const short sh);
+		static void println(const unsigned short* sh);
+		static void println(const unsigned short sh);
+
+		static void println(const char ch);
+		static void println(const unsigned char* ch);
+		static void println(const unsigned char ch);
+
+		static void println(const bool* b);
+		static void println(const bool b);
+
 	private:
+
 	};
 }
 

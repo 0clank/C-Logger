@@ -34,7 +34,9 @@
 int main()
 {
 	std::string test = "test";
+
 	q1::CPrinter::println(&test);
+	Println(&test);
 
 	test::ttest();
 

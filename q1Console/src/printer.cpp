@@ -28,7 +28,7 @@
 
 #include <iostream>
 
-void q1::CPrinter::println(std::string* str)
+void q1::CPrinter::println(const std::string* str)
 {
 	std::cout << *str << std::endl;
 }
