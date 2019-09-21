@@ -11,6 +11,26 @@
 > Simplified C++ Console Output, Input and Logging
 
 ## Features
+
+### Printer
+> Print functions for all primitiv data types as well as strings and wide strings
+
+#### How to use
+Using the macro `Print(x)` and `Println(x)` 
+	
+	Println("String")
+	Println(&str)
+	Println(1.3f)
+	Println(3)
+	
+Or by simple using the functions
+
+	q1::CPrinter::println("String")
+	q1::CPrinter::println(&str)
+	q1::CPrinter::println(1.3f)
+	q1::CPrinter::println(3)
+
+
 ### Logger
 > Logs the string in that format: {{ time }}  {{ type }} [{ file }}]: {{ string }}
 
