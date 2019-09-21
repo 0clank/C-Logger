@@ -357,3 +357,4 @@ MigrationBackup/
 /*.sln
 /Versions/version1.0/include
 /Versions/version2.0/include
+/Versions/version3.0/include
