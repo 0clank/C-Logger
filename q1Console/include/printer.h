@@ -1,8 +1,8 @@
 /*
- * File: entry.cpp
- * Location: src/
- * Author: Qu1oX 
- * 
+ * File: printer.h
+ * Location: include/
+ * Author: Qu1oX
+ *
  * This file is part of {{ q1Console }}.
  *
  * MIT License
@@ -23,44 +23,19 @@
  * SOFTWARE.
  */
 
-#include <logger.h>
-#include <printer.h>
-#include <iostream>
+#ifndef __PRINTER_H__
+#define __PRINTER_H__
 
-#include "include.h"
+#include <string>
 
-#pragma comment(lib, "q1Console")
-
-int main()
+namespace q1
 {
-	std::string test = "test";
-	q1::CPrinter::println(&test);
-
-	test::ttest();
-
-	q1::CLogger logger = q1::CLogger::create(__FILE__);
-
-	std::string info = "some info text over here.";
-	std::string debug = "some debug text over here.";
-	std::string warn = "some warn text over here.";
-	std::string error = "some error text over here.";
-
-	logger.info(&info);
-	logger.debug(&debug);
-	logger.warn(&warn);
-	logger.error(&error);
-
-	logger = q1::CLogger::create(__FILE__)
-		.disableTime()
-		.disableColorization()
-		.disableType()
-		.enableExport()
-		.renameExportFile("log.log");
-
-	logger.info(&info);
-	logger.debug(&debug);
-	logger.warn(&warn);
-	logger.error(&error);
-
-	return 0;
+	class CPrinter
+	{
+	public:
+		static void println(std::string* str);
+	private:
+	};
 }
+
+#endif

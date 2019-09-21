@@ -1,11 +1,13 @@
 #include <logger.h>
 #include <iostream>
+#include <printer.h>
 
-namespace test {
-	inline void test()
+class test
+{
+public:
+	static void ttest()
 	{
-		//q1::CLogger logger;
-		//std::string test = "test";
-		//logger.file(test);
+		std::string test;
+		q1::CPrinter::println(&test);
 	}
-}
+};
