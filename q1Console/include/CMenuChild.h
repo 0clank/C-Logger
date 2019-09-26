@@ -1,5 +1,5 @@
 /*
- * File: CMenu.h
+ * File: CMenuChild.h
  * Location: include/
  * Author: Qu1oX
  *
@@ -23,22 +23,14 @@
  * SOFTWARE.
  */
 
-#ifndef __MENU_H__
-#define __MENU_H__
-
-#include <string>
-#include <vector>
+#ifndef __MENU_CHILD_H__
+#define __MENU_CHILD_H__
 
 namespace q1
 {
-	class CMenu
+	class CMenuChild
 	{
-
-	public:
-
-	private:
-
-		std::string m_strMainTitle;
+		
 	};
 }
 
