@@ -1,8 +1,8 @@
 /*
- * File: entry.cpp
- * Location: src/
- * Author: Qu1oX 
- * 
+ * File: CMenu.cpp
+ * Location: include/
+ * Author: Qu1oX
+ *
  * This file is part of {{ q1Console }}.
  *
  * MIT License
@@ -23,45 +23,4 @@
  * SOFTWARE.
  */
 
-#include <CLogger.h>
-#include <CPrinter.h>
-#include <iostream>
-
-#include "include.h"
-
-#pragma comment(lib, "q1Console")
-
-int main()
-{
-	std::string test = "test";
-
-	q1::CPrinter::println(&test);
-	Println(&test);
-	Println("Test");
-
-	q1::CLogger logger = q1::CLogger::create(__FILE__);
-
-	std::string info = "some info text over here.";
-	std::string debug = "some debug text over here.";
-	std::string warn = "some warn text over here.";
-	std::string error = "some error text over here.";
-
-	logger.info(&info);
-	logger.debug(&debug);
-	logger.warn(&warn);
-	logger.error(&error);
-
-	logger = q1::CLogger::create(__FILE__)
-		.disableTime()
-		.disableColorization()
-		.disableType()
-		.enableExport()
-		.renameExportFile("log.log");
-
-	logger.info(&info);
-	logger.debug(&debug);
-	logger.warn(&warn);
-	logger.error(&error);
-
-	return 0;
-}
+#include "../include/CMenu.h"

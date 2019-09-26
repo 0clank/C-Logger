@@ -24,7 +24,7 @@
  */
 
 #include "../include/color.h"
-#include "../include/printer.h"
+#include "../include/CPrinter.h"
 
 #include <iostream>
 

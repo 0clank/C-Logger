@@ -31,7 +31,7 @@
 #include <windows.h>
 #endif
 
-#include "../include/logger.h"
+#include "../include/CLogger.h"
 #include "../include/color.h"
 
 q1::CLogger q1::logger::internalLogger = q1::CLogger::create(__FILE__);
