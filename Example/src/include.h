@@ -1,6 +1,6 @@
-#include <logger.h>
+#include <CLogger.h>
 #include <iostream>
-#include <printer.h>
+#include <CPrinter.h>
 
 class test
 {
