@@ -50,8 +50,6 @@ q1::CLogger::CLogger(std::string file)
 	}
 
 	m_File = file;
-
-	q1::logger::internalLogger.info("Created logger for file " + m_File);
 }
 
 /**
@@ -241,7 +239,7 @@ void q1::CLogger::debug(const std::string* pointer)
  */
 void q1::CLogger::debug(const std::string copy)
 {
-	this->info(&copy);
+	this->debug(&copy);
 }
 
 /**
@@ -251,7 +249,7 @@ void q1::CLogger::debug(const std::string copy)
 void q1::CLogger::debug(const char* pointer)
 {
 	std::string str = pointer;
-	this->info(&str);
+	this->debug(&str);
 }
 
 /**
@@ -274,7 +272,7 @@ void q1::CLogger::warn(const std::string* pointer)
  */
 void q1::CLogger::warn(const std::string copy)
 {
-	this->info(&copy);
+	this->warn(&copy);
 }
 
 /**
@@ -284,7 +282,7 @@ void q1::CLogger::warn(const std::string copy)
 void q1::CLogger::warn(const char* pointer)
 {
 	std::string str = pointer;
-	this->info(&str);
+	this->warn(&str);
 }
 
 /**
@@ -307,7 +305,7 @@ void q1::CLogger::error(const std::string* pointer)
  */
 void q1::CLogger::error(const std::string copy)
 {
-	this->info(&copy);
+	this->error(&copy);
 }
 
 /**
@@ -317,7 +315,7 @@ void q1::CLogger::error(const std::string copy)
 void q1::CLogger::error(const char* pointer)
 {
 	std::string str = pointer;
-	this->info(&str);
+	this->error(&str);
 }
 
 /**
